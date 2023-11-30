@@ -9,7 +9,7 @@ CREATE SCHEMA public;
 
 -- Creamos la tabla  y las tablas con las que se relaciona persona
 CREATE TABLE persona(
-    idPersona SERIAL,
+    idPersona INT,
     nombre VARCHAR(50),
     paterno VARCHAR(50),
     materno VARCHAR(50),
