@@ -211,7 +211,7 @@ ALTER TABLE ticket ALTER COLUMN fecha SET NOT NULL;
 ALTER TABLE ticket ADD CONSTRAINT ticket_Tipo CHECK(tipo <> '');
 ALTER TABLE ticket ADD CONSTRAINT ticket_Descuento CHECK(descuento >= 0);
 ALTER TABLE ticket ALTER COLUMN descuento SET NOT NULL;
-ALTER TABLE ticket ADD CONSTRAINT ticket_Costo CHECK(costo >= 0);
+ALTER TABLE ticket ADD CONSTRAINT ticket_Costo CHECK(costo > 0);
 ALTER TABLE ticket ALTER COLUMN costo SET NOT NULL;
 
 --Comentarios
