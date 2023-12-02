@@ -426,7 +426,7 @@ COMMENT ON COLUMN distribuir.tipoBioma IS 'Tipo de bioma';
 COMMENT ON CONSTRAINT distribuir_fkey1 ON distribuir IS 'Llave foránea del identificador del alimento';
 COMMENT ON CONSTRAINT distribuir_fkey2 ON distribuir IS 'Llave foránea del tipo de bioma';
 
--- Tabla Jaula Me quedé aquí
+-- Tabla Jaula
 CREATE TABLE jaula (
     numJaula INT,
     tipoBioma VARCHAR(50)
