@@ -41,3 +41,24 @@ create or replace trigger tipo_persona
 after insert or update on persona
 for each row
 execute procedure check_tipo_persona();
+
+
+-- Disparador para el descuento en los tickets
+-- Nos verifica que el descuento este entre 0 y 100
+-- Si no cumple con la condición, nos manda un error
+CREATE OR REPLACE FUNCTION check_descuento_ticket() RETURNS TRIGGER AS
+$$
+BEGIN
+    IF NEW.descuento < 0 OR NEW.descuento > 100 THEN
+        RAISE EXCEPTION 'El descuento en el ticket debe estar entre 0 y 100. Descuento actual: %', NEW.descuento;
+    END IF;
+    RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql;
+
+-- Creamos el disparador
+CREATE TRIGGER descuento_ticket
+BEFORE INSERT OR UPDATE ON ticket
+FOR EACH ROW
+EXECUTE FUNCTION check_descuento_ticket();
